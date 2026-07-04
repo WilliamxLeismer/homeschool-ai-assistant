@@ -1,5 +1,5 @@
 import type { WorkflowDefinition } from "./types";
-import { citationModeQuestion, gradeBandQuestion, parentChecklistItems, sourceTitleQuestion, supportingSourceTextQuestion, worldviewQuestion } from "./shared";
+import { citationModeQuestion, gradeBandQuestion, materialsQuestion, minutesPerDayQuestion, parentChecklistItems, priorKnowledgeQuestion, sourceNeedQuestion, sourceTitleQuestion, supportingSourceTextQuestion, worldviewQuestion } from "./shared";
 
 export const oneWeekPlan: WorkflowDefinition = {
   id: "one-week-plan",
@@ -9,14 +9,15 @@ export const oneWeekPlan: WorkflowDefinition = {
   questions: [
     { id: "topic", label: "What topic do you want help teaching?", type: "text", required: true },
     gradeBandQuestion,
-    { id: "days", label: "How many days should this cover?", type: "number", required: true },
-    { id: "minutesPerDay", label: "How many minutes per day?", type: "text", required: true },
-    { id: "priorKnowledge", label: "What does the student already know?", type: "textarea" },
-    { id: "desiredEndResult", label: "What should the student be able to do by the end?", type: "textarea" },
-    { id: "materials", label: "What materials do you already have available?", type: "textarea" },
+    { id: "days", label: "How many days should this cover?", type: "select", required: true, options: ["3 days", "4 days", "5 days"] },
+    minutesPerDayQuestion,
+    priorKnowledgeQuestion,
+    { id: "desiredEndResult", label: "What should the student be able to do by the end?", type: "select", options: ["explain the main idea", "complete a short project", "answer discussion questions", "finish a review worksheet", "teach it back to the parent"] },
+    materialsQuestion,
     { id: "includeReading", label: "Include reading suggestions?", type: "boolean" },
     { id: "includeActivities", label: "Include hands-on activities?", type: "boolean" },
     { id: "includeAssessment", label: "Include review or assessment?", type: "boolean" },
+    sourceNeedQuestion,
     sourceTitleQuestion,
     supportingSourceTextQuestion,
     citationModeQuestion,

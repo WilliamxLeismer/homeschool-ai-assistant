@@ -1,5 +1,5 @@
 import type { WorkflowDefinition } from "./types";
-import { citationModeQuestion, constraintsQuestion, gradeBandQuestion, parentChecklistItems, sourceTitleQuestion, supportingSourceTextQuestion, worldviewQuestion } from "./shared";
+import { citationModeQuestion, constraintsQuestion, gradeBandQuestion, lessonLengthQuestion, materialsQuestion, parentChecklistItems, priorKnowledgeQuestion, sourceNeedQuestion, sourceTitleQuestion, supportingSourceTextQuestion, worldviewQuestion } from "./shared";
 
 export const oneDayLesson: WorkflowDefinition = {
   id: "one-day-lesson",
@@ -10,11 +10,12 @@ export const oneDayLesson: WorkflowDefinition = {
     { id: "topic", label: "What topic do you want help teaching?", type: "text", required: true },
     gradeBandQuestion,
     { id: "studentCount", label: "Is this for one student, multiple students, or a co-op group?", type: "select", options: ["one student", "multiple students", "co-op group"] },
-    { id: "lessonLength", label: "How much time do you have?", type: "text", required: true },
-    { id: "priorKnowledge", label: "What does the student already know?", type: "textarea" },
-    { id: "desiredOutcome", label: "What is the main goal for this lesson?", type: "textarea" },
-    { id: "materials", label: "What materials do you already have available?", type: "textarea" },
+    lessonLengthQuestion,
+    priorKnowledgeQuestion,
+    { id: "desiredOutcome", label: "What is the main goal for this lesson?", type: "select", options: ["introduce the topic", "build understanding", "practice a skill", "review before moving on", "prepare for a worksheet or discussion"] },
+    materialsQuestion,
     { id: "learningStyle", label: "Any learning style preference?", type: "select", options: ["no preference", "hands-on", "discussion", "reading and narration", "visual"] },
+    sourceNeedQuestion,
     sourceTitleQuestion,
     supportingSourceTextQuestion,
     citationModeQuestion,

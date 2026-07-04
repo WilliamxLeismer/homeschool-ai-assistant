@@ -1,5 +1,5 @@
 import type { WorkflowDefinition } from "./types";
-import { citationModeQuestion, gradeBandQuestion, parentChecklistItems, sourceTitleQuestion, worldviewQuestion } from "./shared";
+import { citationModeQuestion, gradeBandQuestion, parentChecklistItems, sourceTitleQuestion, timeAvailableQuestion, worldviewQuestion } from "./shared";
 
 export const curriculumReview: WorkflowDefinition = {
   id: "curriculum-review",
@@ -10,12 +10,12 @@ export const curriculumReview: WorkflowDefinition = {
     { id: "sourceMaterial", label: "Paste the existing lesson or curriculum material.", type: "textarea", required: true },
     sourceTitleQuestion,
     citationModeQuestion,
-    { id: "improvementGoal", label: "What should be improved?", type: "textarea", required: true },
+    { id: "improvementGoal", label: "What should be improved?", type: "multiselect", required: true, options: ["make it simpler", "make it more rigorous", "make it more hands-on", "add discussion questions", "add assessment", "fit a shorter lesson time", "make it more parent-friendly"] },
     gradeBandQuestion,
-    { id: "studentNeeds", label: "What student needs should this account for?", type: "textarea" },
-    { id: "timeAvailable", label: "How much time do you have?", type: "text" },
+    { id: "studentNeeds", label: "What student needs should this account for?", type: "multiselect", options: ["none", "younger sibling included", "mixed ages", "short attention span", "needs more review", "advanced student", "reading difficulty", "writing difficulty"] },
+    timeAvailableQuestion,
     { id: "desiredOutputType", label: "What output do you want?", type: "select", options: ["adapted teaching plan", "review notes", "activity plan", "discussion guide"] },
-    { id: "concerns", label: "Any concerns about the material?", type: "textarea" },
+    { id: "concerns", label: "Any concerns about the material?", type: "multiselect", options: ["none", "too difficult", "too easy", "too much prep", "unclear explanation", "not enough practice", "possible worldview concern", "safety concern"] },
     worldviewQuestion,
     { id: "makeSimpler", label: "Make it simpler?", type: "boolean" },
     { id: "makeRigorous", label: "Make it more rigorous?", type: "boolean" },

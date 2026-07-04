@@ -1,5 +1,5 @@
 import type { WorkflowDefinition } from "./types";
-import { citationModeQuestion, gradeBandQuestion, parentChecklistItems, sourceTitleQuestion, supportingSourceTextQuestion, worldviewQuestion } from "./shared";
+import { citationModeQuestion, gradeBandQuestion, parentChecklistItems, priorKnowledgeQuestion, sourceNeedQuestion, sourceTitleQuestion, supportingSourceTextQuestion, timeAvailableQuestion, worldviewQuestion } from "./shared";
 
 export const teachMeFirst: WorkflowDefinition = {
   id: "teach-me-first",
@@ -10,12 +10,13 @@ export const teachMeFirst: WorkflowDefinition = {
     { id: "topic", label: "What topic do you want help teaching?", type: "text", required: true },
     gradeBandQuestion,
     { id: "parentComfort", label: "What is your current comfort level with this topic?", type: "select", required: true, options: ["low", "medium", "high"] },
-    { id: "priorKnowledge", label: "What does the student already know?", type: "textarea" },
+    priorKnowledgeQuestion,
     { id: "desiredDepth", label: "How deep should this explanation go?", type: "select", options: ["simple overview", "solid working understanding", "deeper background"] },
-    { id: "timeAvailable", label: "How much time do you have?", type: "text" },
-    { id: "confusingParts", label: "What parts are confusing or concerning?", type: "textarea" },
+    timeAvailableQuestion,
+    { id: "confusingParts", label: "What parts are confusing or concerning?", type: "multiselect", options: ["not sure", "vocabulary", "how to explain it simply", "common mistakes", "how to make it hands-on", "how to check understanding"] },
     { id: "includeAnalogies", label: "Include concrete analogies or demonstrations?", type: "boolean" },
     { id: "includeMistakes", label: "Include common mistakes to watch for?", type: "boolean" },
+    sourceNeedQuestion,
     sourceTitleQuestion,
     supportingSourceTextQuestion,
     citationModeQuestion,

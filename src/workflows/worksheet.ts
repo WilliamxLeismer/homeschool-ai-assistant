@@ -1,5 +1,5 @@
 import type { WorkflowDefinition } from "./types";
-import { citationModeQuestion, gradeBandQuestion, parentChecklistItems, sourceTitleQuestion, supportingSourceTextQuestion, worldviewQuestion } from "./shared";
+import { citationModeQuestion, gradeBandQuestion, parentChecklistItems, sourceNeedQuestion, sourceTitleQuestion, supportingSourceTextQuestion, worldviewQuestion } from "./shared";
 
 export const worksheet: WorkflowDefinition = {
   id: "worksheet",
@@ -10,13 +10,14 @@ export const worksheet: WorkflowDefinition = {
     { id: "topic", label: "What topic should the worksheet cover?", type: "text", required: true },
     gradeBandQuestion,
     { id: "purpose", label: "What is the worksheet for?", type: "select", options: ["practice", "review", "assessment", "introduction"] },
-    { id: "questionCount", label: "How many questions?", type: "number", required: true },
+    { id: "questionCount", label: "How many questions?", type: "select", required: true, options: ["5", "10", "15", "20"] },
     { id: "questionTypes", label: "What question types should be included?", type: "multiselect", options: ["matching", "multiple choice", "fill in the blank", "short answer", "narration prompt", "drawing/labeling", "vocabulary", "word problems", "review questions"] },
     { id: "difficulty", label: "How difficult should it be?", type: "select", options: ["easy", "medium", "challenging"] },
     { id: "includeVocabulary", label: "Include vocabulary?", type: "boolean" },
     { id: "includeShortAnswer", label: "Include short answer?", type: "boolean" },
     { id: "includeAnswerKey", label: "Include an answer key?", type: "boolean" },
     { id: "includeParentNotes", label: "Include parent notes?", type: "boolean" },
+    sourceNeedQuestion,
     sourceTitleQuestion,
     supportingSourceTextQuestion,
     citationModeQuestion,
