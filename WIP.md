@@ -28,6 +28,8 @@ This file tracks known gaps before the app should be considered more than an MVP
 - Add a source-first workflow where the parent pastes textbook pages, lesson excerpts, or teacher notes before the model writes.
 - Add clearer "confidence/source support" labels on artifacts.
 - Add a pre-generation warning when the topic needs external context but no source was supplied.
+- Reduce excessive parent follow-up tasks after generation. The first real run produced many "to do" items for the parent, which is hard to act on in the current interface. The product needs a more UX-friendly way to gather sufficient context before generation, ask only the most important follow-up questions, and avoid dumping a long unresolved task list into the final artifact.
+- Limit open-ended interview questions. Questions such as "How much time do you have?" should use simple multiple-choice ranges instead of free text. Review all workflows and replace open text fields with select, multiselect, boolean, or constrained inputs wherever possible so busy homeschool parents and co-op teachers can move through the wizard quickly.
 - Add editable artifact drafts in the browser.
 - Add a better history management UI:
   - delete artifacts;
