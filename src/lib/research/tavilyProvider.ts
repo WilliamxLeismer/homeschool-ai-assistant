@@ -6,6 +6,7 @@ type TavilyResponse = {
     title?: string;
     url?: string;
     content?: string;
+    score?: number;
   }>;
 };
 
@@ -42,7 +43,8 @@ export const tavilyProvider: ResearchProvider = {
         title: result.title || "Untitled source",
         url: result.url || "",
         snippet: (result.content || "").replace(/\s+/g, " ").trim(),
-        provider: "tavily"
+        provider: "tavily",
+        relevanceScore: result.score
       }));
   }
 };

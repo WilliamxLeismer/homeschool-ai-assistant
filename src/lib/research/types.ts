@@ -6,6 +6,7 @@ export type ResearchSource = {
   url: string;
   snippet: string;
   provider: string;
+  relevanceScore?: number;
 };
 
 export type ResearchRequest = {

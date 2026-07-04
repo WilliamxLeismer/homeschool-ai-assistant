@@ -44,6 +44,7 @@ export type GeneratedArtifact = {
     url: string;
     snippet: string;
     provider: string;
+    relevanceScore?: number;
   }>;
   provider: string;
   model: string;

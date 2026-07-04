@@ -20,6 +20,7 @@ export function SourceSupportPanel({ artifact }: { artifact: GeneratedArtifact }
               <li key={source.id}>
                 <a href={source.url} target="_blank" rel="noreferrer">{source.id}: {source.title}</a>
                 <p>{source.snippet}</p>
+                {source.relevanceScore !== undefined ? <small>Relevance score: {source.relevanceScore}</small> : null}
               </li>
             ))}
           </ol>
