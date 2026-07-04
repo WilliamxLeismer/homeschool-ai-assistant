@@ -29,7 +29,7 @@ export default function SettingsPage() {
         </label>
         <label>
           OpenAI-compatible model
-          <input name="openAiCompatibleModel" defaultValue={status.settings.openAiCompatibleModel || process.env.OPENAI_COMPATIBLE_MODEL || ""} />
+          <input name="openAiCompatibleModel" defaultValue={status.settings.openAiCompatibleModel || process.env.OPENAI_COMPATIBLE_MODEL || "openai/gpt-5-mini"} />
         </label>
         <label className="checkbox-row">
           <input name="debugShowPrompts" type="checkbox" defaultChecked={status.debugShowPrompts} />

@@ -5,13 +5,13 @@ export function createOpenAiCompatibleProvider(): LlmProvider {
   const settings = readLocalSettings();
   const baseUrl = process.env.OPENAI_COMPATIBLE_BASE_URL;
   const apiKey = process.env.OPENAI_COMPATIBLE_API_KEY || process.env.AI_GATEWAY_API_KEY;
-  const model = settings.openAiCompatibleModel || process.env.OPENAI_COMPATIBLE_MODEL || "unset-model";
+  const model = settings.openAiCompatibleModel || process.env.OPENAI_COMPATIBLE_MODEL || "openai/gpt-5-mini";
 
   return {
     name: "openai_compatible",
     model,
     async generate(request): Promise<GenerateResponse> {
-      if (!baseUrl || !apiKey || model === "unset-model") {
+      if (!baseUrl || !apiKey) {
         throw new Error("OpenAI-compatible provider requires OPENAI_COMPATIBLE_BASE_URL, OPENAI_COMPATIBLE_API_KEY or AI_GATEWAY_API_KEY, and OPENAI_COMPATIBLE_MODEL.");
       }
 
