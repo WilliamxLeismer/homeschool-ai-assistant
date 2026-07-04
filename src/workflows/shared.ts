@@ -3,10 +3,10 @@ import { sourceGroundingChecklistItems } from "@/lib/prompting/sourceGroundingRu
 
 export const gradeBandQuestion: InterviewQuestion = {
   id: "gradeBand",
-  label: "What age or grade band is this for?",
+  label: "What age group is this for?",
   type: "select",
   required: true,
-  options: ["K-2", "3-5", "6-8", "mixed"]
+  options: ["ages 5-7", "ages 8-10", "ages 11-13", "mixed ages"]
 };
 
 export const worldviewQuestion: InterviewQuestion = {

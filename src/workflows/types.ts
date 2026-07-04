@@ -1,4 +1,4 @@
-export type GradeBand = "K-2" | "3-5" | "6-8" | "mixed";
+export type GradeBand = "ages 5-7" | "ages 8-10" | "ages 11-13" | "mixed ages";
 
 export type WorldviewLevel = "none" | "light" | "moderate";
 
