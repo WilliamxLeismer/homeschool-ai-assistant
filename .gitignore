@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# local environment and secrets
+.env
+.env.local
+.env.*.local
+
+# local runtime data
+data/*.json
+!data/.gitkeep
+
+# build/cache artifacts
+*.tsbuildinfo
+.vercel/
+coverage/
+playwright-report/
+test-results/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
