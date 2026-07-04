@@ -43,8 +43,11 @@ export async function generateArtifact(workflowId: WorkflowId, answers: Intervie
 
   let markdown = response.text;
   let validationNotes = validateArtifact(markdown, workflow, answers);
+  let repairAttempted = false;
+  let repairSucceeded = false;
 
   if (!validationPassed(validationNotes)) {
+    repairAttempted = true;
     try {
       const repairResponse = await provider.generate({
         system,
@@ -73,6 +76,7 @@ Repair task:
         response = repairResponse;
         markdown = repairResponse.text;
         validationNotes = repairedNotes;
+        repairSucceeded = validationPassed(repairedNotes);
       }
     } catch (error) {
       validationNotes = [
@@ -92,6 +96,8 @@ Repair task:
     provider: response.provider,
     model: response.model,
     createdAt: new Date().toISOString(),
+    repairAttempted,
+    repairSucceeded,
     validationNotes,
     systemPrompt: system,
     userPrompt: user

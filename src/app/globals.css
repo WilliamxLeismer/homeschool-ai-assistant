@@ -187,6 +187,27 @@ small {
   padding: 22px;
 }
 
+.quality-panel {
+  display: grid;
+  gap: 10px;
+}
+
+.quality-panel h2 {
+  margin: 0;
+}
+
+.quality-panel ul {
+  margin: 0;
+}
+
+.quality-pass {
+  border-color: var(--foreground);
+}
+
+.quality-warning {
+  border-width: 2px;
+}
+
 .source-panel {
   display: grid;
   gap: 16px;

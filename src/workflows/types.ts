@@ -48,6 +48,8 @@ export type GeneratedArtifact = {
   provider: string;
   model: string;
   createdAt: string;
+  repairAttempted?: boolean;
+  repairSucceeded?: boolean;
   validationNotes?: string[];
   systemPrompt?: string;
   userPrompt?: string;

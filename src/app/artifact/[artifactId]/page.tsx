@@ -25,8 +25,8 @@ export default async function ArtifactPage({ params }: { params: Promise<{ artif
         <Link className="button secondary" href="/history">History</Link>
       </div>
       <SourceSupportPanel artifact={artifact} />
+      <ParentReviewChecklist artifact={artifact} />
       <ArtifactViewer artifact={artifact} />
-      <ParentReviewChecklist notes={artifact.validationNotes || []} />
       {status.debugShowPrompts ? (
         <details className="debug-panel no-print">
           <summary>Debug prompt view</summary>
