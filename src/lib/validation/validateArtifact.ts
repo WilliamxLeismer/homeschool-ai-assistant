@@ -8,6 +8,18 @@ function requiredHeadings(template: string) {
     .filter(Boolean);
 }
 
+function sectionText(markdown: string, heading: string) {
+  const pattern = new RegExp(`## ${heading}\\n([\\s\\S]*?)(?=\\n## |$)`, "i");
+  return markdown.match(pattern)?.[1] || "";
+}
+
+function bulletCount(text: string) {
+  return text
+    .split("\n")
+    .filter((line) => /^\s*[-*]\s+/.test(line))
+    .length;
+}
+
 export function validateArtifact(markdown: string, workflow: WorkflowDefinition, answers: InterviewAnswers) {
   const notes: string[] = [];
 
@@ -48,6 +60,11 @@ export function validateArtifact(markdown: string, workflow: WorkflowDefinition,
 
   if (wantsSources && !hasSourceText && !hasSourceTitle && /page\s+\d+|pp\.\s*\d+|according to\s+[A-Z][A-Za-z]+/i.test(markdown)) {
     notes.push("Artifact may contain unsupported citation-like claims.");
+  }
+
+  const additionalContext = sectionText(markdown, "Additional Context Needed Before Teaching");
+  if (bulletCount(additionalContext) > 3) {
+    notes.push("Additional context section should contain no more than three bullet items.");
   }
 
   return notes.length ? notes : ["Basic validation passed."];

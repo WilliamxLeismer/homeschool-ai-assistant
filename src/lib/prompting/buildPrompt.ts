@@ -42,7 +42,12 @@ Use this exact section structure:
 ${workflow.outputTemplate}
 
 Quality checklist:
-${workflow.validationChecklist.map((item) => `- ${item}`).join("\n")}`,
+${workflow.validationChecklist.map((item) => `- ${item}`).join("\n")}
+
+Follow-up limit:
+- If you include "Additional Context Needed Before Teaching", keep it short.
+- Use no more than three bullet points in that section.
+- If the parent can use the artifact today, say so and avoid adding unnecessary homework.`,
     answers
   );
 

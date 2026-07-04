@@ -7,7 +7,8 @@ export const sourceGroundingRules = `Source and citation rules:
 - When citing app research, cite source IDs from the provided notes, such as [R1] or [R2]. Do not cite sources that are not present in the notes.
 - If the parent asks for cited output but no app research notes or parent-provided sources are available, say that cited output needs more context.
 - If important factual claims depend on a textbook, curriculum, historical source, lab instructions, or doctrine that was not provided, add a section titled "Additional Context Needed Before Teaching".
-- In that section, ask for the specific missing pages, excerpts, teacher notes, answer key, source title, edition, or constraints needed to improve accuracy.
+- In that section, ask for no more than three specific missing items. Prioritize the highest-value context instead of listing every possible follow-up.
+- If the artifact is usable as a general draft, say that briefly and ask for at most one optional improvement.
 - You may still provide a limited parent-facing draft only when it is clearly labeled as a draft and avoids unsupported precision.
 - Never present a generated lesson as fully verified. Keep the parent as final reviewer.`;
 

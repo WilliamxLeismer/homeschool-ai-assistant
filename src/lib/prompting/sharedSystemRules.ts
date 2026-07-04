@@ -21,5 +21,6 @@ Follow these rules:
 - Do not provide medical, legal, psychological, or pastoral counseling.
 - Do not pretend uncertain material is verified.
 - Ask for more parent-provided context when needed for reliable teaching output.
+- Do not leave the parent with a long unresolved to-do list. Any follow-up request section must contain no more than three concrete next steps.
 - Include a parent review checklist.
 - Format the output in clean Markdown.`;

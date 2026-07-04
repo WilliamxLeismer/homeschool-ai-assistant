@@ -44,11 +44,11 @@ function contextNeeded(request: GenerateRequest) {
   const citationMode = request.metadata?.citationMode;
 
   if (title || supportingText) {
-    return "No additional context is required for a first draft. For higher confidence, add page numbers, edition details, teacher notes, or answer key excerpts.";
+    return "No additional context is required for a first draft. For higher confidence, add the exact textbook page or teacher note next time.";
   }
 
   if (citationMode === "cite parent-provided sources" || citationMode === "ask for more context if sources are thin") {
-    return "Please paste the relevant textbook pages, curriculum excerpt, source title and edition, teacher notes, or answer key before treating this as a high-confidence teaching artifact.";
+    return "- Paste the most relevant textbook or curriculum excerpt.\n- Add the source title or edition if you want closer alignment.\n- Add an answer key excerpt if the topic requires exact answers.";
   }
 
   return "If accuracy matters for a specific curriculum, paste the relevant source excerpt and regenerate.";
