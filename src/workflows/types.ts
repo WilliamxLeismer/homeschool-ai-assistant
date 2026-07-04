@@ -38,6 +38,13 @@ export type GeneratedArtifact = {
   title: string;
   markdown: string;
   answers: InterviewAnswers;
+  researchSources?: Array<{
+    id: string;
+    title: string;
+    url: string;
+    snippet: string;
+    provider: string;
+  }>;
   provider: string;
   model: string;
   createdAt: string;

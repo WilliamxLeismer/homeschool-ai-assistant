@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArtifactViewer } from "@/components/ArtifactViewer";
 import { ParentReviewChecklist } from "@/components/ParentReviewChecklist";
+import { SourceSupportPanel } from "@/components/SourceSupportPanel";
 import { getArtifact } from "@/lib/artifacts/getArtifact";
 import { getProviderStatus } from "@/lib/llm/getProvider";
 import { getWorkflow } from "@/workflows";
@@ -23,6 +24,7 @@ export default async function ArtifactPage({ params }: { params: Promise<{ artif
         </div>
         <Link className="button secondary" href="/history">History</Link>
       </div>
+      <SourceSupportPanel artifact={artifact} />
       <ArtifactViewer artifact={artifact} />
       <ParentReviewChecklist notes={artifact.validationNotes || []} />
       {status.debugShowPrompts ? (

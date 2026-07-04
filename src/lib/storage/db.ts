@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { GeneratedArtifact, InterviewAnswers, WorkflowId } from "@/workflows/types";
+import type { ResearchSource } from "@/lib/research/types";
 
 export type ArtifactRecord = {
   id: string;
@@ -8,6 +9,7 @@ export type ArtifactRecord = {
   title: string;
   markdown: string;
   answersJson: string;
+  researchSourcesJson?: string;
   provider: string;
   model: string;
   createdAt: string;
@@ -42,13 +44,15 @@ export async function writeArtifactRecords(records: ArtifactRecord[]) {
 export function toRecord(artifact: GeneratedArtifact): ArtifactRecord {
   return {
     ...artifact,
-    answersJson: JSON.stringify(artifact.answers)
+    answersJson: JSON.stringify(artifact.answers),
+    researchSourcesJson: JSON.stringify(artifact.researchSources || [])
   };
 }
 
 export function fromRecord(record: ArtifactRecord): GeneratedArtifact {
   return {
     ...record,
-    answers: JSON.parse(record.answersJson) as InterviewAnswers
+    answers: JSON.parse(record.answersJson) as InterviewAnswers,
+    researchSources: record.researchSourcesJson ? JSON.parse(record.researchSourcesJson) as ResearchSource[] : []
   };
 }

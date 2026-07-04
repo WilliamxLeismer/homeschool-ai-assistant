@@ -88,6 +88,7 @@ Repair task:
     title: titleFromMarkdown(markdown, workflow.title),
     markdown,
     answers,
+    researchSources,
     provider: response.provider,
     model: response.model,
     createdAt: new Date().toISOString(),

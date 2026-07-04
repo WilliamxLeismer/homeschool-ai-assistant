@@ -114,6 +114,7 @@ h2 {
 .provider-status,
 .wizard-card,
 .review-panel,
+.source-panel,
 .debug-panel,
 .note,
 .settings-form {
@@ -180,9 +181,40 @@ small {
 .wizard-card,
 .settings-form,
 .review-panel,
+.source-panel,
 .debug-panel,
 .note {
   padding: 22px;
+}
+
+.source-panel {
+  display: grid;
+  gap: 16px;
+  background: var(--soft);
+}
+
+.source-panel h2 {
+  margin: 0 0 6px;
+}
+
+.source-panel details {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.source-panel ol {
+  display: grid;
+  gap: 12px;
+  padding-left: 22px;
+}
+
+.source-panel li p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
 }
 
 .question {
