@@ -11,15 +11,27 @@ export function createOpenAiCompatibleProvider(): LlmProvider {
     name: "openai_compatible",
     model,
     async generate(request): Promise<GenerateResponse> {
-      if (!baseUrl || !apiKey) {
-        throw new Error("OpenAI-compatible provider requires OPENAI_COMPATIBLE_BASE_URL, OPENAI_COMPATIBLE_API_KEY or AI_GATEWAY_API_KEY, and OPENAI_COMPATIBLE_MODEL.");
+      const missing = [
+        !baseUrl ? "OPENAI_COMPATIBLE_BASE_URL" : "",
+        !apiKey ? "OPENAI_COMPATIBLE_API_KEY or AI_GATEWAY_API_KEY" : ""
+      ].filter(Boolean);
+
+      if (missing.length) {
+        throw new Error(`OpenAI-compatible provider is missing: ${missing.join(", ")}. For Vercel AI Gateway, add AI_GATEWAY_API_KEY to .env.local and restart the dev server.`);
       }
 
-      const response = await fetch(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
+      if (!baseUrl || !apiKey) {
+        throw new Error("OpenAI-compatible provider configuration is incomplete.");
+      }
+
+      const configuredBaseUrl = baseUrl;
+      const configuredApiKey = apiKey;
+
+      const response = await fetch(`${configuredBaseUrl.replace(/\/$/, "")}/chat/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`
+          Authorization: `Bearer ${configuredApiKey}`
         },
         body: JSON.stringify({
           model,
